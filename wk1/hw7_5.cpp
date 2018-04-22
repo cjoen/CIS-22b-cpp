@@ -32,7 +32,7 @@ int main() {
 
   }
 
-// outputing the numbers within the range.
+// outputting the numbers within the range.
   cout << "Here are the numbers entered:" << '\n';
   for (index = 0; index < NUM_INPUT; index++) {
 
