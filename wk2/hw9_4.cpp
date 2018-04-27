@@ -2,21 +2,22 @@
 //assignment [NUMBER][WEEK]
 
 #include <iostream>
+#include <string>
 using namespace std;
 
-double getAverage(double *arr, int size) {
+double getAverage(double array[][1], int size) {
    int i, sum = 0;
    double avg;
 
    for (i = 0; i < size; ++i) {
-      sum += arr[i];
+      sum += array[i][1];
    }
    avg = double(sum) / size;
 
    return avg;
 }
 
-void arrangeArr(double array[], int size)
+void arrangeArr(double array[][1], int size)
 {
    bool swap;
    double temp;
@@ -26,11 +27,11 @@ void arrangeArr(double array[], int size)
       swap = false;
       for (int count = 0; count < (size - 1); count++)
       {
-         if (array[count] > array[count + 1])
+         if (array[count][1] > array[count + 1][1])
          {
-            temp = array[count];
-            array[count] = array[count + 1];
-            array[count + 1] = temp;
+            temp = array[count][1];
+            array[count][1] = array[count + 1][1];
+            array[count + 1][1] = temp;
             swap = true;
          }
       }
@@ -38,35 +39,40 @@ void arrangeArr(double array[], int size)
 }
 
 int main() {
-  int scoreLength, scoreAvg, *arrLen;
+  double scoreLength, scoreAvg, *arrLen;
   double average;
   arrLen = &scoreLength;
   cout << "How many test scores will you enter?";
   cin >> *arrLen;
 
-  double scoreArr [*arrLen], * arrPtr;
-  arrPtr = scoreArr;
+  double scoreArr[*arrLen][2];
+  string students[*arrLen];
+
 
   for (int count = 0; count < scoreLength; count++) {
-    double temp;
-    cout << "Enter test score " << count+1 << ": ";
+    int temp;
+    cout << "Enter Student " << count+1 << "\'s last name: ";
+    cin >> *(students + count);
+    cout << "Enter the students test score: ";
     cin >> temp;
     if (temp >= 0){
-      *(scoreArr + count) = temp;
+      scoreArr[count][1] = temp;
+      scoreArr [count][0] = count;
     } else {
       cout << "Negative scores are not allowed." << endl;
       cout << "Please enter another score for this test: ";
-      cin >> *(scoreArr + count);
+      cin >> scoreArr[count][1];
+      scoreArr [count][0] = count;
     }
   }
 
-  average = getAverage( scoreArr, scoreLength);
-  arrangeArr( scoreArr, scoreLength);
+//  average = getAverage(scoreArr, scoreLength);
+//  arrangeArr(scoreArr, scoreLength);
 
   cout << "The test scores in ascending order, and their average, are:\n";
   cout << "Score \n-------- \n";
   for (int count = 0; count < scoreLength; count++) {
-    cout << *(scoreArr + count)<< " ";
+    cout << scoreArr[count][1]<< " ";
     cout << endl;
   }
   cout << "The average score is :" << average << endl;
