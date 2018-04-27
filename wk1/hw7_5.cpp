@@ -8,37 +8,30 @@ using namespace std;
 int main() {
   //setting global variables
   int NUM_INPUT;
-  vector <int> nums(NUM_INPUT);
+  vector <int> nums;
   int index;
 
   //asking for the amount of input numbers
   cout << "How many numbers would you like to have? ";
   cin >> NUM_INPUT;
 
-  // looping through the requested amount of times.
-  for (index = 0; index < NUM_INPUT; index++) {
-    int num_in;
-    cout << "enter a number between 10 and 100: ";
-    cin >> num_in ;
+while ( nums.size() < NUM_INPUT) {
+      int num_in;
+      cout << "Enter a number between 10 and 100: ";
+      cin >> num_in ;
+        if (10 < num_in && num_in < 100 && nums.size() < 1){
+          nums.push_back(num_in);
+        } else {
+          cout << "Invalid.  " << endl;
+        }
+      }
 
-    //conditionals to make sure numbers are within range
-    if (num_in>=10 && num_in<=100) {
-      nums.push_back(num_in);
-    } else {
-      //resulting error message and backcount.
-      cout << "Invalid. ";
-      index = index-1 ;
+    cout << "Here are the numbers entered:" << '\n';
+    for (index = 0; index < NUM_INPUT; index++) {
+
+      cout << nums[index] << '\n';
+
     }
-
-  }
-
-// outputing the numbers within the range.
-  cout << "Here are the numbers entered:" << '\n';
-  for (index = 0; index < NUM_INPUT; index++) {
-
-    cout << nums[index] << '\n';
-
-  }
 
 
   return 0;
