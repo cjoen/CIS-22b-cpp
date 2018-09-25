@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="false">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fa621b27-cb70-4194-89bf-f2a969c6a966" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/atemplate.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/review/forloop.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/review/helloworld.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/review/ifelse.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/review/inputout.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/review/multiplevars.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/review/whileLoop.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wk1/hw7_5.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wk1/hw81.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wk1/hw82.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wk1/lab8.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wk2/hw9_1.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wk2/hw9_3.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wk2/hw9_4.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wk2/lab2.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wk2/wk2_notes.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wk3/hw10_1.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wk3/hw10_2.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wk3/hw10_3.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wk3/hw10_4.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wk3/labwk3.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wk4/hw11_1.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wk4/hw11_2.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wk4/lab4.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wk5/12_1hw.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wk5/12_2hw.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wk5/12_3hw.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wk5/12_4hw.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wk5/input.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wk5/input1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wk5/input2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wk5/lab5.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wk5/output.txt" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="289935167">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="169" />
+    <option name="y" value="43" />
+    <option name="width" value="1400" />
+    <option name="height" value="987" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="int-cpp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="int-cpp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="int-cpp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="int-cpp" type="462c0819:PsiDirectoryNode" />
+              <item name="week0" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fa621b27-cb70-4194-89bf-f2a969c6a966" name="Default Changelist" comment="" />
+      <created>1537919332264</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1537919332264</updated>
+      <workItem from="1537919334564" duration="255000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="255000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="169" y="43" width="1400" height="987" extended-state="0" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2496318" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+</project>
