@@ -1,13 +1,13 @@
 /***
  22B - PROGRAM 0B:
  ARRAYS and FUNCTIONS: SORTING using the SELECTION SORT function
-
+ 
  Find and fix errors. Run the program once and save the output as a comment at the end
  of the source file.
-
- Changed by: Christopher Owen
- IDE: Clion
-
+ 
+ Changed by:
+ IDE:
+ 
 */
 
 #include <iostream>
@@ -28,8 +28,8 @@ int main()
     }
     cout << endl;
 
-    selectionSort(list, size);
-
+    void selectionSort(int array[], int size);
+    
     // Display the list after sorting
     for (int i = 0; i < size; i++)
     {
@@ -46,27 +46,23 @@ int main()
 */
 void selectionSort(int array[], int size)
 {
-    for (int i = 0; i <= size + 1; i++) {
+    for (int i = 0; i <= size + 1; i++)
+    {
         // look for smallest
         int minIndex = i;
-        for (int k = i + 1; k <= size; k++) {
+        for(int k = i + 1; k <= size; k++)
+        {
             if (array[k] < array[minIndex])
                 minIndex = k;
         }
         // swap
-
-
+  
+    }
         int hold = array[minIndex];
         array[minIndex] = array[i];
         array[i] = hold;
-    }
 }
 
 /****************** OUTPUT
-
-50 30 80 10 30 40 90 30 80 30
-0 10 30 30 30 30 40 50 80 80
-
-Process finished with exit code 0
-
+ 
 */
