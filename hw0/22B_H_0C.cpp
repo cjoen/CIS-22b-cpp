@@ -1,7 +1,7 @@
 /***
  22B - PROGRAM 0C: Exam Statistics
  ARRAYS, FUNCTIONS, DATA FILES, and SORTING
- 
+
  The program prompts user to enter the input file containing scores of students along with their ids.
  It stores the data from input file into two parallel arrays.
  It then
@@ -11,16 +11,16 @@
  - displays lowest score followed by the ids of the students with that score
  - total number of students
  - class average
- 
+
  You have three tasks:
  1. Finish writing main() (provide the correct parameters in the calling statements)
  2. There are 3 or 4 minor errors - fix them
  3. Run the program and save the output as a commment at the end of the source file
  (under OUTPUT #3)
- 
- Changed by:
- IDE:
- 
+
+ Changed by: Christopher Owen
+ IDE: Clion
+
  */
 
 #include <iostream>
@@ -46,48 +46,48 @@ int main()
     // Constants definitions
     const string OUTFILE1 = "scoresOut1.txt";
     const string OUTFILE2 = "scoresOut2.txt";
-    
-    const int SIZE = 50;                // maximum size of array
+
+    const int SIZE = 50;                  // maximum size of array
     //const int SIZE = 5;                 // maximum size of array
-    
+
     // Variables definitions
     string idList[SIZE];              // array of student ids
-    double scoresList[SIZE],           // array of test scores
-    average = 0.0;
+    int scoreList[SIZE];           // array of test scores
+    double average = 0.0;
     int size = 0; // actual size of array
-    
+
     // show the welcome message
     printIntro();
-    
+
     // read students' data from input file into the arrays
-    //  readStuData(); // <================= what are this function's arguments?
-    
+    readStuData(idList, scoreList, size, SIZE); // <================= what are this function's arguments?
+
     //sort arrays in ascending order by ID and write the sorted arrays to a file
-    //  sortIdAsc();        // <=================
-    //  writeDataToFile();  // <=================
+    sortIdAsc(idList, scoreList, size);        // <=================
+    writeDataToFile(idList, scoreList, size, OUTFILE1);  // <=================
     cout << "\n\nExams scores and IDs sorted in ascending order by the students' IDs are available in \""
-    << OUTFILE1 << "\"." << endl;
-    
+         << OUTFILE1 << "\"." << endl;
+
     //sort arrays in descending order by score and write the sorted arrays to a file
-    //sortScoreDesc();    // <=================
-    //writeDataToFile();  // <=================
+    sortScoreDesc(idList, scoreList, size);    // <=================
+    writeDataToFile(idList, scoreList, size, OUTFILE2);  // <=================
     cout << "\nExams scores and IDs sorted in descending order by the students' scores are available in file \""
-    << OUTFILE2 << "\"." << endl;
-    
+         << OUTFILE2 << "\"." << endl;
+
     // show highest scores & the matching IDs
-    //displayTargetScore();    // <=================
+    displayTarget(idList, scoreList, size, scoreList[0]);    // <=================
     // show lowest scores & the matching IDs
-    //displayTargetScore();   // <=================
-    
+    displayTarget(idList, scoreList, size, scoreList[size-1]);   // <=================
+
     // display the number of students and the class average
     cout << fixed << showpoint << setprecision(2);
     cout << "\nTotal students in class: " << size << endl;
-    //average = calcAverage();  // <=================
+    average = calcAverage(scoreList, size);  // <=================
     cout << "Class average: " << average <<  endl;
-    
+
     // show the end of the program message
     printEnd();
-    
+
     return 0;
 }
 
@@ -98,15 +98,15 @@ int main()
 void printIntro(void)
 {
     cout << "\n\n\t\t *~~*~~* WELCOME *~~*~~*\n\n"
-    << "\tto the Exam Score Calculator and Sorter!\n\n"
-    << "\t\tThis program will: \n"
-    << "\t\t - obtain the students' scores and IDs from an input file \n"
-    << "\t\t - calculate the class average,\n "
-    << "\t\t - sort in ascending order by student ID, \n"
-    << "\t\t - write the sorted scores and IDs to an output file\n"
-    << "\t\t - sort in descending order by score, \n"
-    << "\t\t - write the sorted scores and IDs to another output file, and \n"
-    << "\t\t - show the highest and lowest scores and the matching IDs \n\n";
+         << "\tto the Exam Score Calculator and Sorter!\n\n"
+         << "\t\tThis program will: \n"
+         << "\t\t - obtain the students' scores and IDs from an input file \n"
+         << "\t\t - calculate the class average,\n "
+         << "\t\t - sort in ascending order by student ID, \n"
+         << "\t\t - write the sorted scores and IDs to an output file\n"
+         << "\t\t - sort in descending order by score, \n"
+         << "\t\t - write the sorted scores and IDs to another output file, and \n"
+         << "\t\t - show the highest and lowest scores and the matching IDs \n\n";
 }
 
 
@@ -116,24 +116,24 @@ void printIntro(void)
 void printEnd(void)
 {
     cout << "\n\n\t\t *~~*~~* THE END *~~*~~*\n"
-    << "\t     Thank you for using my program! \n\n";
+         << "\t     Thank you for using my program! \n\n";
 }
 
 
 /******************************************************
- This function prompts the user to enter the name of the input file. 
- It then reads the data from input file into two parallel arrays, 
+ This function prompts the user to enter the name of the input file.
+ It then reads the data from input file into two parallel arrays,
  one storing student ids, the other storing their scores.
  */
 void readStuData(string idList[], int scoreList[], int &size, const int maxSize)
 {
     string inputfilename;
     ifstream inputFile;
-    
+
     // prompt user for filename
     cout << "\nPlease enter the name of the file that holds the students' scores and IDs: \n";
     cin >> inputfilename;
-    
+
     // open the input file
     inputFile.open(inputfilename.c_str());
     if (inputFile.fail())
@@ -141,7 +141,7 @@ void readStuData(string idList[], int scoreList[], int &size, const int maxSize)
         cout << "\n\tPlease check the name of the input file and \n\ttry again later!\n";
         exit(EXIT_FAILURE);
     }
-    
+
     // reading data from the input file into arrays
     int idx = 0;
     while (idx < maxSize && inputFile >> idList[idx] >> scoreList[idx])
@@ -152,8 +152,8 @@ void readStuData(string idList[], int scoreList[], int &size, const int maxSize)
     if ( size == maxSize && !inputFile.eof())
     {
         cout << "\n\tThe input file  \"" << inputfilename
-        << "\" is too big: \n\tit has more than "
-        << maxSize << " items!\n";
+             << "\" is too big: \n\tit has more than "
+             << maxSize << " items!\n";
         exit(EXIT_FAILURE);
     }
     // close the input file
@@ -166,56 +166,59 @@ void readStuData(string idList[], int scoreList[], int &size, const int maxSize)
 double calcAverage(const int scoreList[], int size)
 {
     int sum = 0;
-    
+
     for (int i = 0; i <= size ; i++)
         sum += scoreList[i];
-    
+
     return sum / (size - 1);
 }
 
 
 /******************************************************
- This function displays the ids of the students with the 
+ This function displays the ids of the students with the
  same targetScore
  */
 void displayTarget(const string idList[], const int scoreList[], int size, int targetScore)
 {
-    cout << "\nTarget score: \t" << targetScore << endl
-    << "Students:" << endl;
-    int i = 0;
-    while (i < size && scoreList[i] == targetScore)
-    {
-        cout << "\t\t" << idList[i] << endl;
-        i--;
+    cout << "\nTarget score: \t" << targetScore << endl << "Students:" << endl;
+
+    int idx = 0;
+
+    for(int count = 0; count < size; count++) {
+        if (scoreList[count] == targetScore) {
+            cout << "\t\t" << idList[count] << endl;
+            idx++;
+        }
     }
-    cout << "\n\t\t" << i << " student[s] got the same (" << targetScore << ") score!\n\n";
+
+    cout << "\n\t\t" << idx << " student[s] got the same (" << targetScore << ") score!\n\n";
 }
 
 
 /******************************************************
- This function writes data from two parallel arrays to a file. 
+ This function writes data from two parallel arrays to a file.
  */
 void writeDataToFile(const string idList[], const int scoreList[], int size, string filename)
 {
     ofstream outputFile;
-    
+
     //open the output file
     outputFile.open(filename.c_str());
-    
+
     // display ids and scores
     for (int i = 0; i < size ; i++)
     {
         outputFile << idList[i]
-        << fixed << showpoint << setprecision(2) << setw(8)<< scoreList[i]
-        << endl;
+                   << fixed << showpoint << setprecision(2) << setw(8)<< scoreList[i]
+                   << endl;
     }
-    
+
     //close the output file
     outputFile.close();
 }
 
 /******************************************************
- This function accepts two parallel arrays and their size and 
+ This function accepts two parallel arrays and their size and
  sorts them in ascending order of the first array
  */
 void sortIdAsc(string idList[], int scoreList[], int size)
@@ -223,7 +226,7 @@ void sortIdAsc(string idList[], int scoreList[], int size)
     string tempId;
     int tempScore;
     int lowIdx;
-    
+
     for (int i = 0; i < size - 1; i++)
     {
         // find index of the lowest ID
@@ -237,7 +240,7 @@ void sortIdAsc(string idList[], int scoreList[], int size)
         tempId = idList[i];
         idList[i] = idList[lowIdx];
         idList[lowIdx] = tempId;
-        
+
         // swap scores
         tempScore = scoreList[i];
         scoreList[i] = scoreList[lowIdx];
@@ -254,7 +257,7 @@ void sortScoreDesc(string idList[], int scoreList[], int size)
     string tempId;
     int tempScore;
     int highIdx;
-    
+
     for (int i = 0; i < size - 1; i++)
     {
         // find index of the smallest score
@@ -268,7 +271,7 @@ void sortScoreDesc(string idList[], int scoreList[], int size)
         tempId = idList[i];
         idList[i] = idList[highIdx];
         idList[highIdx] = tempId;
-        
+
         // swap scores
         tempScore = scoreList[i];
         scoreList[i] = scoreList[highIdx];
@@ -278,11 +281,11 @@ void sortScoreDesc(string idList[], int scoreList[], int size)
 
 
 /****************** OUTPUT #1 ******************
- 
+
  *~~*~~* WELCOME *~~*~~*
- 
+
 	to the Exam Score Calculator and Sorter!
- 
+
  This program will:
  - obtain the students' scores and IDs from an input file
  - calculate the class average,
@@ -291,25 +294,25 @@ void sortScoreDesc(string idList[], int scoreList[], int size)
  - sort in desecending order by score,
  - write the sorted scores and IDs to another output file, and
  - show the highest and lowest scores and the matching IDs
- 
- 
+
+
  Please enter the name of the file that holds the students' scores and IDs:
  scores.txt
- 
+
 	The input file  "scores.txt" is too big:
 	it has more than 5 items!
- 
- 
+
+
  *~~*~~* THE END *~~*~~*
  Thank you for using my program!
  */
 
 /****************** OUTPUT #2 ******************
- 
+
  *~~*~~* WELCOME *~~*~~*
- 
+
 	to the Exam Score Calculator and Sorter!
- 
+
  This program will:
  - obtain the students' scores and IDs from an input file
  - calculate the class average,
@@ -318,20 +321,99 @@ void sortScoreDesc(string idList[], int scoreList[], int size)
  - sort in desecending order by score,
  - write the sorted scores and IDs to another output file, and
  - show the highest and lowest scores and the matching IDs
- 
- 
+
+
  Please enter the name of the file that holds the student's scores:
  ids.txt
  ERROR: Could not open file: "ids.txt".
 	Please check the name of the input file and
 	try again later!
- 
- 
+
+
  *~~*~~* THE END *~~*~~*
  Thank you for using my program!
  */
 
 /**********************************************
 ****************** OUTPUT #3 ******************
- 
+
+Please enter the name of the file that holds the students' scores and IDs:
+/Users/cj/dev/school/DA_Clion_cpp/scores.txt
+
+
+Exams scores and IDs sorted in ascending order by the students' IDs are available in "scoresOut1.txt".
+
+12AB1      82
+2ABCD     100
+333XY      92
+516BC      99
+9QWE9      45
+AB111     100
+AC234      78
+AJ222      98
+AK323     100
+BC121     100
+CD222     100
+DH232      89
+DR123     100
+EF333     100
+JP200      89
+SW111      95
+TY4XZ      45
+XY001      45
+
+
+Exams scores and IDs sorted in descending order by the students' scores are available in file "scoresOut2.txt".
+
+2ABCD     100
+AB111     100
+AK323     100
+BC121     100
+CD222     100
+DR123     100
+EF333     100
+516BC      99
+AJ222      98
+SW111      95
+333XY      92
+DH232      89
+JP200      89
+12AB1      82
+AC234      78
+9QWE9      45
+TY4XZ      45
+XY001      45
+
+Target score: 	100
+Students:
+		2ABCD
+		AB111
+		AK323
+		BC121
+		CD222
+		DR123
+		EF333
+
+		7 student[s] got the same (100) score!
+
+
+Target score: 	45
+Students:
+		9QWE9
+		TY4XZ
+		XY001
+
+		3 student[s] got the same (45) score!
+
+
+Total students in class: 18
+Class average: 91.00
+
+
+		 *~~*~~* THE END *~~*~~*
+	     Thank you for using my program!
+
+
+Process finished with exit code 0
+
  */
