@@ -1,36 +1,36 @@
 /**
  CIS 22B: Homework 3A
- 
+
  This program uses the INSERTION sort algorithm to sort an
  array of integers in ascending order.
- 
+
  Modify the insertion sort function to sort an array of doubles in descending order:
  1. Sort an array of doubles (instead of integers)
  2. Sort it in descending order
- 
- NAME:
+
+ NAME: Christopher Owen
  */
 #include <iostream>
 using namespace std;
 
 // Function prototypes
-void insertionSort(int *, int *);
-void showArray(int *, int *);
+void insertionSort(double *, double *);
+void showArray(double *, double *);
 
 int main()
 {
     // Define and initialize an array with unsorted values
     const int SIZE = 100;
-    int list[SIZE] = {50, 70, 20, 80, 90, 10};
+    double list[SIZE] = {50, 70, 20, 80, 90, 10};
     int length = 6;
-    
+
     // Display the array.
     cout << "The unsorted values are\n";
     showArray(list, list + length - 1);
-    
+
     // Sort the array.
     insertionSort(list, list + length - 1);
-    
+
     // Display the array again.
     cout << "The sorted values are\n";
     showArray(list, list + length - 1);
@@ -40,17 +40,17 @@ int main()
 /***************************************************************
  Definition of function insertionSort.
  This function performs an ascending order insertion sort on
- array. 
+ array.
    pList - points to the first element in the list
    pLast - points to the last element in the list
  ****************************************************************/
-void insertionSort(int *pList, int *pLast)
+void insertionSort(double *pList, double *pLast)
 {
-    for (int *curr = pList + 1; curr <= pLast; curr++)
+    for (double *curr = pList + 1; curr <= pLast; curr++)
     {
-        int hold = *curr;                       // copy current element to hold
-        int *back = curr - 1;
-        while (back >= pList && hold < *back)   // search where to insert the current element
+        double hold = *curr;                       // copy current element to hold
+        double *back = curr - 1;
+        while (back >= pList && hold > *back)   // search where to insert the current element
         {
             *(back + 1) = *back;                // shift to the right
             back--;
@@ -61,22 +61,31 @@ void insertionSort(int *pList, int *pLast)
 
 /***************************************************************
  Definition of function showArray.
- This function displays the contents of array. 
+ This function displays the contents of array.
    pList - points to the first element in the list
    pLast - points to the last element in the list
  ****************************************************************/
-void showArray(int *pList, int *pLast)
+void showArray(double *pList, double *pLast)
 {
-    for (int *ptr = pList; ptr <= pLast; ptr++)
+    for (double *ptr = pList; ptr <= pLast; ptr++)
         cout << *ptr << " ";
     cout << endl;
 }
 /***************************************************************
  Save the new OUTPUT below
- 
+
  The unsorted values are
  50 70 20 80 90 10
  The sorted values are
  10 20 50 70 80 90
- 
+
+/Users/cj/dev/school/DA_Clion_cpp/cmake-build-debug/DA_Clion_cpp
+The unsorted values are
+50 70 20 80 90 10
+The sorted values are
+90 80 70 50 20 10
+
+Process finished with exit code 0
+
+
  */
