@@ -1,14 +1,14 @@
 /**
  CIS 22B: Homework 3B
- 
+
  This program uses dynamic allocation of memory to create a
  copy of an array.
- 
+
  It might compile; if it does, it should give a warning. If you run it, it will crash.
- Find and fix the errors. Write comments to explain the errors. Run the program and save 
- the output as a comment at the end of the source file. 
+ Find and fix the errors. Write comments to explain the errors. Run the program and save
+ the output as a comment at the end of the source file.
                                                     Hint: There are THREE logical errors.
-  NAME:
+  NAME: Christopher Owen
 */
 #include <iostream>
 #include <iomanip>
@@ -20,7 +20,7 @@ using namespace std;
 
 
 // Function prototypes
-void createCopy ( double *pFirst, double *pLast, double *newList );
+double *createCopy ( double *pFirst, double *pLast ); // changed the function to return the newly allocated array.
 void printList ( double *pFirst, double *pLast );
 
 int main()
@@ -28,14 +28,14 @@ int main()
     int     size = 5;
     double  ary[100] = { 2.1, 3.5, 8.7, 1.9, 5.6 };
     double  *list; // will point to a replica of ary
-    
-    createCopy ( ary, ary + size - 1, list );
+
+    list = createCopy (ary, ary + size - 1);
     //ary + size - 1 is the address of the last element in ary
     printList ( ary, ary + size - 1 );    // print the original array
     printList ( list, list + size - 1 );  // print its copy
-    
-    delete [] ary; // release memory
-    
+
+    delete [] list; // release memory from list
+
 #ifdef _MSC_VER
     cout << _CrtDumpMemoryLeaks() ? "Memory Leak\n" : "No Memory Leak\n";
 #endif
@@ -51,14 +51,14 @@ int main()
 void printList ( double *pFirst, double *pLast )
 {
     double *pWalk;
-    
+
     cout << setprecision(2) << fixed;
     for( pWalk = pFirst; pWalk <= pLast; pWalk++ )
     {
         cout <<  *pWalk << " ";
     }
     cout << endl;
-    
+
     return;
 }
 
@@ -68,11 +68,12 @@ void printList ( double *pFirst, double *pLast )
  pLast - pointer to the last element
  POST: list copied to newList
  ****************************************************************/
-void createCopy ( double *pFirst, double *pLast, double *newList )
+double *createCopy ( double *pFirst, double *pLast)  // Changed the function from void to a double to return the newly allocated array
 {
     double *pwSource;
     double *pwDest;
-    
+    double* newList;
+
     newList = new double[pLast - pFirst]; // allocate memory for the new array
     //cout << "DEBUG size = " << pLast - pFirst << endl;
     for( pwSource = pFirst, pwDest = newList; pwSource <= pLast; pwSource++, pwDest++ )
@@ -80,12 +81,17 @@ void createCopy ( double *pFirst, double *pLast, double *newList )
         *pwDest = *pwSource;
         //cout << "DEBUG " << *pwDest << endl; // DEBUG
     }
-    
-    return;
+
+    return newList;
 }
+
 /***************************************************************
   Save the OUTPUT below
-  
-  
-*/
 
+/Users/cj/dev/school/DA_Clion_cpp/cmake-build-debug/DA_Clion_cpp
+2.10 3.50 8.70 1.90 5.60
+2.10 3.50 8.70 1.90 5.60
+
+Process finished with exit code 0
+
+*/
